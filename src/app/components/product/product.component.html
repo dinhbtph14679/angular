@@ -1,0 +1,28 @@
+<p>product works!</p>
+<h1>{{titile}}</h1>
+<input type="text" [(ngModel)]="productName">
+{{productName}}
+<button (click)="evenClick()">Click</button>
+{{isStatus}}
+<div *ngIf="isStatus">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.status ? "Con hang" : "Het hang"}}</td>
+            <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
