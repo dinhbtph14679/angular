@@ -1,28 +1,31 @@
 import { Injectable } from '@angular/core';
 import data from '../data';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IProduct } from '../models/productTyoe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  API_URL = "http://localhost:3000/products"
+
   constructor(private http : HttpClient) { }
 
-  getProduct(id: any){
-    return data.find(item => item.id == id)
-
+  getProduct(id: any): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.API_URL}/${id}`)
   }
-  getProductlist(){
-    return this.http.get("https://jsonplaceholder.typicode.com/todos")
+  getProductlist(): Observable<IProduct[]>{
+    return this.http.get<IProduct[]>(`${this.API_URL}`)
   }
-  deleteProduct(){
-
+  deleteProduct(id: number): Observable<IProduct>{
+    return this.http.delete<IProduct>(`${this.API_URL}/${id}`)
   }
-  updateProduct(){
-
+  updateProduct(product: IProduct){
+    return this.http.put<IProduct>(`${this.API_URL}/${product.id}`,product)
   }
-  addProduct(){
-
+  addProduct(product: IProduct): Observable<IProduct>{
+    return this.http.post<IProduct>(`${this.API_URL}`, product)
   }
 }

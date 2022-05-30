@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product AA",
+      "price": 100,
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Product B",
+      "price": 200,
+      "status": true
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "price": 300,
+      "status": true
+    },
+    {
+      "name": "BMW S1000RR 2020",
+      "price": 132131,
+      "status": true,
+      "id": 4
+    },
+    {
+      "name": "dhaskdhkasdas",
+      "price": 12345,
+      "status": true,
+      "id": 5
+    }
+  ]
+}
